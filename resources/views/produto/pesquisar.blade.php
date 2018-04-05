@@ -33,10 +33,12 @@
                     </tr>
                 @foreach($produtos as $p)
                     <tr>
-                        <td>{{$p->id}}</td>
-                        <td class="text-left">{{$p->descricao}}</td>
-                        <td>{{$p->quantidade}}</td>
-                        <td>{{$p->valor}}</td>
+                        <td></td>
+                        <td class="text-left"></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="/produtos/excluir/"><button class="btn btn-danger">Excluir</button></a></td>
+                        <td><a href="/produtos/alterar/"><button class="btn btn-warning">Alterar</button></a></td>
                     </tr>
                 @endforeach
              </table>
