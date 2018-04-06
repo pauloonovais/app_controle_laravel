@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-group">
-                <label for="valor">Valor:<span class="text-danger"></span>*</label>
+                <label for="valor">Valor:<span class="text-danger">*</span></label>
                 <input type="number" id="valor" name="valor" class="form-control" required>
             </div>
 

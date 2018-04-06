@@ -49,6 +49,48 @@ class ProdutoController extends Controller
         //Chamando a view produto.inserir e enviando a mensagem criada
         return view('produto.inserir')->with('mensagem',$mensagem);
     }
+    Public function mostrar_alterar($id)
+    {
+        //Busca no banco o registro com o id recebido
+        $produto=Produto::find($id);
+
+        //Envia os dados deste registro a view produto.alterar
+        return view('produto.alterar')->with('produto', $produto);
+    }
+    Public function alterar()
+    {
+        $id=Input::get('id');
+        $p=Produto::find($id);
+
+        $p->descricao=Input::get('descricao');
+        $p->quantidade=Input::get('quantidade');
+        $p->valor=Input::get('valor');
+
+        $p->save();
+
+        $mensagem="Produto alterado com sucesso!";
+        $produto=Produto::all();
+        return view('produto.pesquisar')->with('mensagem', $mensagem)->with('produtos', $produto);
+
+    }
+    Public function excluir($id)
+    {
+        //Criando um objeto com o id pela rota
+        $produto=Produto::find($id);
+
+        //Excluir este produto
+        $produto->delete();
+
+        //Criando uma mensagem para ser enviada a view produto.pesquisar
+        $mensagem="Produto excluído com sucesso!";
+
+        //Capturando objetos para enviar a view produto.pesquisar
+        $produtos=Produto::all();
+
+        //Retornando a view produto.pesquisar
+        return view('produto.pesquisar')->with('mensagem', $mensagem)->with('produtos', $produtos);
+    }
 }
+
 
 

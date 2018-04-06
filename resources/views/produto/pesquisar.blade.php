@@ -11,6 +11,9 @@
 <body>
     <div class="container">
         <h1 class="mt-2">Pesquisa de produtos</h1>
+        @if(!empty($mensagem))
+            <div class="alert alert-success mt-2">{{$mensagem}}</div>
+        @endif
         <form action="/produtos/pesquisar" method="post" class="form-inline mt-2">
             <input type="hidden" name="_token" value="{{{csrf_token()}}}">
             <div class="form-group">
@@ -30,15 +33,17 @@
                         <th class="text-left">Descrição</th>
                         <th>Quantidade</th>
                         <th>Valor</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 @foreach($produtos as $p)
                     <tr>
-                        <td></td>
-                        <td class="text-left"></td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="/produtos/excluir/"><button class="btn btn-danger">Excluir</button></a></td>
-                        <td><a href="/produtos/alterar/"><button class="btn btn-warning">Alterar</button></a></td>
+                        <td>{{$p->id}}</td>
+                        <td class="text-left">{{$p->descricao}}</td>
+                        <td>{{$p->quantidade}}</td>
+                        <td>{{$p->valor}}</td>
+                        <td><a href="/produtos/excluir/{{$p->id}}"><button class="btn btn-danger">Excluir</button></a></td>
+                        <td><a href="/produtos/alterar/{{$p->id}}"><button class="btn btn-warning">Alterar</button></a></td>
                     </tr>
                 @endforeach
              </table>
