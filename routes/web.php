@@ -12,18 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/produtos/pesquisar', 'ProdutoController@pesquisar');
-Route::post('/produtos/pesquisar', 'ProdutoController@pesquisar');
+Route::get('/produto/pesquisar', 'ProdutoController@pesquisar');
+Route::post('/produto/pesquisar', 'ProdutoController@pesquisar');
 
-Route::get('/produtos/inserir', 'ProdutoController@mostrar_inserir');
-Route::post('/produtos/inserir', 'ProdutoController@inserir');
+Route::get('/produto/inserir', 'ProdutoController@mostrar_inserir');
+Route::post('/produto/inserir', 'ProdutoController@inserir');
 
-Route::get('/produtos/alterar/{id}', 'ProdutoController@mostrar_alterar');
-Route::post('/produtos/alterar', 'ProdutoController@alterar');
+Route::get('/produto/alterar/{id}', 'ProdutoController@mostrar_alterar');
+Route::post('/produto/alterar', 'ProdutoController@alterar');
 
-Route::get('/produtos/excluir/{id}', 'ProdutoController@excluir');
+Route::get('/produto/excluir/{id}', 'ProdutoController@excluir');
+
+Route::get('/produto/inicio', 'ProdutoController@inicio');
+Route::post('/produto/inicio', 'ProdutoController@inicio');
 
 

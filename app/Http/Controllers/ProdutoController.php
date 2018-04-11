@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Input;
 
 class ProdutoController extends Controller
 {
+    Public function inicio()
+    {
+        return view('produto.inicio');
+    }
+
     Public function pesquisar()
     {
 

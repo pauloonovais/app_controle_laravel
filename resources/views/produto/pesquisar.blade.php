@@ -1,20 +1,14 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../css/app.css">
-    <title>Pesquisar</title>
-</head>
-<body>
-    <div class="container">
+<?php
+    $titulo = "pesquisar";
+?>
+    @extends('home')
+    @section('conteudo')
+
         <h1 class="mt-2">Pesquisa de produtos</h1>
         @if(!empty($mensagem))
             <div class="alert alert-success mt-2">{{$mensagem}}</div>
         @endif
-        <form action="/produtos/pesquisar" method="post" class="form-inline mt-2">
+        <form action="/produto/pesquisar" method="post" class="form-inline mt-2">
             <input type="hidden" name="_token" value="{{{csrf_token()}}}">
             <div class="form-group">
                 <label for="descricao">Descrição:</label>
@@ -42,12 +36,10 @@
                         <td class="text-left">{{$p->descricao}}</td>
                         <td>{{$p->quantidade}}</td>
                         <td>{{$p->valor}}</td>
-                        <td><a href="/produtos/excluir/{{$p->id}}"><button class="btn btn-danger">Excluir</button></a></td>
-                        <td><a href="/produtos/alterar/{{$p->id}}"><button class="btn btn-warning">Alterar</button></a></td>
+                        <td><a href="/produto/excluir/{{$p->id}}"><button class="btn btn-danger">Excluir</button></a></td>
+                        <td><a href="/produto/alterar/{{$p->id}}"><button class="btn btn-warning">Alterar</button></a></td>
                     </tr>
                 @endforeach
              </table>
-            @endif
-    </div>
-</body>
-</html>
+        @endif
+             @stop

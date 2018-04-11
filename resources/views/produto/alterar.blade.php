@@ -1,18 +1,11 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../css/app.css">
-    <title>Alterar</title>
-</head>
-<body>
+<?php
+    $titulo = "alterar";
+?>
+    @extends('home')
+    @section('conteudo')
 
-<div class="container">
     <h1 class="mt-2">Alterar produto</h1>
-    <form action="/produtos/alterar" method="post" class="mt-2">
+    <form action="/produto/alterar" method="post" class="mt-2">
         <input type="hidden" name="_token" value="{{{csrf_token()}}}">
         <div class="form-group">
             <label for="id">ID: <span class="text-danger">*</span></label>
@@ -33,7 +26,5 @@
         <div>Os campos marcados com <span class="text-danger">*</span> não podem estar em branco.</div>
         <input type="submit" class="btn btn-success mt-2" value="Alterar">
     </form>
-</div>
 
-</body>
-</html>
+    @stop
