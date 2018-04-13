@@ -44,6 +44,9 @@ class ProdutoController extends Controller
         $produto->descricao=Input::get('descricao');
         $produto->quantidade=Input::get('quantidade');
         $produto->valor=Input::get('valor');
+        $produto->data=Input::get('data');
+        $produto->total=Input::get('total');
+        $produto->fornecedor=Input::get('fornecedor');
 
         //Salvando no banco de dados
         $produto->save();
@@ -70,6 +73,10 @@ class ProdutoController extends Controller
         $p->descricao=Input::get('descricao');
         $p->quantidade=Input::get('quantidade');
         $p->valor=Input::get('valor');
+        $p->data=Input::get('data');
+        $p->total=Input::get('total');
+        $p->fornecedor=Input::get('fornecedor');
+
 
         $p->save();
 

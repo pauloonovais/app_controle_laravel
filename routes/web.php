@@ -15,18 +15,26 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/produto/pesquisar', 'ProdutoController@pesquisar');
-Route::post('/produto/pesquisar', 'ProdutoController@pesquisar');
+Route::get('/produto/pesquisar', 'ProdutoController@pesquisar')->middleware('auth');
+Route::post('/produto/pesquisar', 'ProdutoController@pesquisar')->middleware('auth');
 
-Route::get('/produto/inserir', 'ProdutoController@mostrar_inserir');
-Route::post('/produto/inserir', 'ProdutoController@inserir');
+Route::get('/produto/inserir', 'ProdutoController@mostrar_inserir')->middleware('auth');
+Route::post('/produto/inserir', 'ProdutoController@inserir')->middleware('auth');
 
-Route::get('/produto/alterar/{id}', 'ProdutoController@mostrar_alterar');
-Route::post('/produto/alterar', 'ProdutoController@alterar');
+Route::get('/produto/alterar/{id}', 'ProdutoController@mostrar_alterar')->middleware('auth');
+Route::post('/produto/alterar', 'ProdutoController@alterar')->middleware('auth');
 
-Route::get('/produto/excluir/{id}', 'ProdutoController@excluir');
+Route::get('/produto/excluir/{id}', 'ProdutoController@excluir')->middleware('auth');
 
-Route::get('/produto/inicio', 'ProdutoController@inicio');
-Route::post('/produto/inicio', 'ProdutoController@inicio');
+Route::get('/produto/inicio', 'ProdutoController@inicio')->middleware('auth');
+Route::post('/produto/inicio', 'ProdutoController@inicio')->middleware('auth');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

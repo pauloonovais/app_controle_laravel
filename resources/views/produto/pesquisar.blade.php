@@ -27,6 +27,9 @@
                         <th class="text-left">Descrição</th>
                         <th>Quantidade</th>
                         <th>Valor</th>
+                        <th>Total</th>
+                        <th>Data</th>
+                        <th>Fornecedor</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -36,6 +39,9 @@
                         <td class="text-left">{{$p->descricao}}</td>
                         <td>{{$p->quantidade}}</td>
                         <td>{{$p->valor}}</td>
+                        <td>{{$p->total}}</td>
+                        <td>{{$p->data}}</td>
+                        <td>{{$p->fornecedor}}</td>
                         <td><a href="/produto/excluir/{{$p->id}}"><button class="btn btn-danger">Excluir</button></a></td>
                         <td><a href="/produto/alterar/{{$p->id}}"><button class="btn btn-warning">Alterar</button></a></td>
                     </tr>

@@ -18,6 +18,9 @@ class CreateProdutosTable extends Migration
             $table->string('descricao');
             $table->integer('quantidade');
             $table->decimal('valor', 15, 2);
+            $table->decimal('total', 15, 2);
+            $table->date('data');
+            $table->string('fornecedor');
             $table->timestamps();
         });
     }
